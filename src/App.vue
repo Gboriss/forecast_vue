@@ -1,32 +1,45 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<div id="app">
+	<Search />
+
+</div>
 </template>
 
+<script>
+import Search from '@/components/Search'
+export default {
+	name: 'App',
+	components: {
+		Search
+	},
+	data() {
+		return {
+			api_key: '11'
+		}
+	}
+
+}
+</script>
+
 <style lang="scss">
+@import './assets/style/reset.css';
+@import './assets/style/fonts.css';
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+
+
+	max-width: 350px;
+	height: 500px;
+	margin: 30px auto;
+	padding: 20px;
+	box-shadow: 0 0 40px 0 rgba(0, 0, 0, .25);
+	background: #A2ABB2;
+
+	border-radius: 8px;
+	box-sizing: border-box;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
