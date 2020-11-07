@@ -1,7 +1,33 @@
 <template>
 <div id="app">
 	<Search />
-
+	<main class="widget">
+		<h2 id="name">San Francisco</h2>
+		<h1 id="current-temp">15C</h1>
+		<h3 id="description">Monday 06 November</h3>
+		<ul class="days">
+			<li class="day_list">
+				<div>❉</div>
+				<button>Mon</button>
+			</li>
+			<li class="day_list">
+				<div>✥</div>
+				<button>Tue</button>
+			</li>
+			<li class="day_list active">
+				<div>➺</div>
+				<button>Wen</button>
+			</li>
+			<li class="day_list">
+				<div>❃</div>
+				<button>Fue</button>
+			</li>
+			<li class="day_list">
+				<div>✵</div>
+				<button>Fri</button>
+			</li>
+		</ul>
+	</main>
 </div>
 </template>
 
@@ -14,7 +40,7 @@ export default {
 	},
 	data() {
 		return {
-			api_key: '11'
+			api_key: 'f6a2c317f97367bfe8fa3e5fc517e80d'
 		}
 	}
 
@@ -27,12 +53,11 @@ export default {
 
 #app {
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-
+	flex-direction: column;
+    font-family: 'PtSans';
 
 	max-width: 350px;
-	height: 500px;
+	height: 480px;
 	margin: 30px auto;
 	padding: 20px;
 	box-shadow: 0 0 40px 0 rgba(0, 0, 0, .25);
@@ -40,6 +65,54 @@ export default {
 
 	border-radius: 8px;
 	box-sizing: border-box;
+}
+main {
+	padding: 15px;
+	margin-top: 10px;
+	position: relative;
+	z-index: 2;
+	&:before {
+		content: '';
+		z-index: -1;
+		position: absolute;
+		// background-color: #f3fb10;
+        background: linear-gradient(to left, #f3fb10, transparent);
+		// border-radius: 150px;
+		border-radius: 100% 0 0 100% / 50% 0 0 50%;
+
+		width: 150px;
+		height: 300px;
+		top: 43px;
+		right: -20px;
+	}
+}
+h1 {
+	font-size: 150px;
+}
+
+.days {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 25px;
+
+	.day_list {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		// padding: 5px;
+		width: 40px;
+		height: 80px;
+		border: 1px solid #111;
+		border-radius: 25px;
+		cursor: pointer;
+
+	}
+	.active {
+		background-color: #040403;
+		color: #fff;
+	}
 }
 
 </style>
