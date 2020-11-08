@@ -1,6 +1,12 @@
 <template>
-<form id="search-form" class="search-form">
-    <input type="text" id="autocomplete" placeholder="Search..." autocomplete="off">
+<form id="search-form" class="search-form"  @submit.prevent="fetchWeather">
+    <input 
+		type="text" 
+		id="autocomplete" 
+		placeholder="Search..." 
+		autocomplete="off"
+		v-model="query"	
+	>
     <button type="submit">
         +
     </button>
@@ -10,7 +16,24 @@
 
 <script>
 export default {
-    name: 'Search'
+    name: 'Search',
+	data() {
+		return {
+			api_key: 'f6a2c317f97367bfe8fa3e5fc517e80d',
+			url_base: 'https://api.openweathermap.org/data/2.5/',
+			query: '',
+			weather: {}
+		}
+	},
+	methods: {
+		fetchWeather (e) {
+			fetch(`${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`)
+			.then(res => {
+				return res.json()
+			}).then(this.setResults)
+			
+		},
+	}
 
 }
 </script>
