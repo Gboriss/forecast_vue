@@ -19,15 +19,15 @@ export default {
     name: 'Search',
 	data() {
 		return {
-			api_key: 'f6a2c317f97367bfe8fa3e5fc517e80d',
-			url_base: 'https://api.openweathermap.org/data/2.5/',
+			api_key: '9a3f56db816fe284dd580a82176924f9',
+			url_base: 'api.openweathermap.org/data/2.5/',
 			query: '',
 			weather: {}
 		}
 	},
 	methods: {
 		fetchWeather (e) {
-			fetch(`${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`)
+			fetch(`${this.url_base}forecast?q=${this.query}&units=metric&APPID=${this.api_key}`)
 			.then(res => {
 				return res.json()
 			}).then(this.setResults)

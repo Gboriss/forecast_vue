@@ -43,12 +43,12 @@ export default {
 		return {
 			api_key: 'f6a2c317f97367bfe8fa3e5fc517e80d',
 			url_base: 'https://api.openweathermap.org/data/2.5/',
-			// query: '',
+			query: '',
       		weather: {}
 		}
 	},
 	methods: {
-
+		
 	}
 
 }
